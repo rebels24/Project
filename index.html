@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduMedia - Belajar Interaktif</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .dark {
+      background: #0f172a;
+      color: #f8fafc;
+    }
+    .dark section {
+      background: #1e293b !important;
+      box-shadow: 0 2px 6px rgba(255,255,255,0.05);
+    }
+    .dark header,
+    .dark footer,
+    .dark nav {
+      background: #0f172a !important;
+    }
+    .dark nav a {
+      background: #334155 !important;
+      color: #f1f5f9 !important;
+    }
+    header {
+      background: linear-gradient(to right, #4f46e5, #3b82f6);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    nav {
+      background: #1e293b;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    nav a {
+      color: #f8fafc;
+      text-decoration: none;
+      padding: 0.75rem 1.25rem;
+      background: #3b82f6;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+    nav a:hover {
+      background: #2563eb;
+    }
+    main {
+      padding: 2rem;
+    }
+    section {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #1e40af;
+      font-size: 24px;
+    }
+    .quiz input[type="radio"] {
+      margin-right: 0.5rem;
+      transform: scale(1.3);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #1e293b;
+      color: white;
+      font-size: 16px;
+    }
+    #timer {
+      font-weight: bold;
+      color: #dc2626;
+    }
+    #toggle-mode {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #ffffff;
+      color: rgb(26, 255, 5);
+      border: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      z-index: 1000;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 18px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <button id="toggle-mode" onclick="toggleMode()">Mode Gelap</button>
+  <header>
+    <h1>EduMedia</h1>
+    <p>Platform Pembelajaran Interaktif</p>
+  </header>
+  <nav>
+    <a href="#materi">Materi</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#hasil">Hasil</a>
+  </nav>
+  <main>
+    <section id="materi">
+      <h2>Materi Pembelajaran</h2>
+      <p><strong>Judul:</strong> Pengantar Internet of Things (IoT)</p>
+      <p><strong>Apa itu IoT?</strong> IoT adalah konsep di mana berbagai perangkat fisik dapat saling terhubung melalui internet dan bertukar data secara otomatis tanpa intervensi manusia secara langsung. Ini memungkinkan efisiensi, otomatisasi, dan pengambilan keputusan yang lebih baik dalam berbagai sektor.
+      </p>
+      <p><strong>Contoh Implementasi IoT:</strong></p>
+      <ul>
+        <li><strong>Smart Home:</strong> Lampu otomatis, termostat pintar, dan kamera keamanan yang dapat diakses dari smartphone.</li>
+        <li><strong>Kesehatan:</strong> Wearable devices seperti smartwatch yang memantau detak jantung dan aktivitas fisik.</li>
+        <li><strong>Pertanian:</strong> Sensor kelembaban tanah yang mengatur irigasi otomatis.</li>
+        <li><strong>Transportasi:</strong> Mobil otonom dan sistem pelacakan kendaraan berbasis GPS.</li>
+      </ul>
+    </section>
+    <section id="quiz" class="quiz">
+      <h2>Quiz</h2>
+      <p id="timer">Waktu: 60 detik</p>
+      <form id="quizForm">
+        <p>1. Apa kepanjangan dari IoT?</p>
+        <label><input type="radio" name="q1" value="a"> Internet of Technology</label><br>
+        <label><input type="radio" name="q1" value="b"> Internet of Things</label><br>
+        <label><input type="radio" name="q1" value="c"> Interconnected Online Technology</label><br><br>
+
+        <p>2. Mana contoh penerapan IoT?</p>
+        <label><input type="radio" name="q2" value="a"> Remote Control TV</label><br>
+        <label><input type="radio" name="q2" value="b"> Smart Watch</label><br>
+        <label><input type="radio" name="q2" value="c"> Printer biasa</label><br><br>
+
+        <p>3. IoT bermanfaat dalam bidang pertanian dengan cara?</p>
+        <label><input type="radio" name="q3" value="a"> Mengontrol pupuk secara manual</label><br>
+        <label><input type="radio" name="q3" value="b"> Menggunakan sensor untuk mengatur penyiraman</label><br>
+        <label><input type="radio" name="q3" value="c"> Menyiram tanaman dengan ember</label><br><br>
+
+        <p>4. Salah satu tantangan utama dalam pengembangan IoT adalah?</p>
+        <label><input type="radio" name="q4" value="a"> Biaya produksi murah</label><br>
+        <label><input type="radio" name="q4" value="b"> Keamanan data dan privasi</label><br>
+        <label><input type="radio" name="q4" value="c"> Jaringan 5G</label><br><br>
+
+        <button type="button" onclick="checkAnswers()">Kirim Jawaban</button>
+      </form>
+    </section>
+    <section id="hasil">
+      <h2>Hasil Jawaban</h2>
+      <p id="result">Silakan kerjakan quiz untuk melihat hasil.</p>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 EduMedia. Dibuat dengan HTML & Semangat Belajar.
+  </footer>
+
+  <script>
+    let time = 60;
+    let timerInterval = setInterval(() => {
+      if (time <= 0) {
+        clearInterval(timerInterval);
+        checkAnswers();
+        document.getElementById("timer").innerText = "Waktu habis!";
+      } else {
+        document.getElementById("timer").innerText = `Waktu: ${time} detik`;
+        time--;
+      }
+    }, 1000);
+
+    function checkAnswers() {
+      let correct = 0;
+      const answers = {
+        q1: 'b',
+        q2: 'b',
+        q3: 'b',
+        q4: 'b'
+      };
+
+      let feedback = "";
+      for (let i = 1; i <= 4; i++) {
+        const q = document.querySelector(`input[name="q${i}"]:checked`);
+        if (q && q.value === answers[`q${i}`]) {
+          correct++;
+          feedback += `✔️ Soal ${i}: Benar.\n`;
+        } else {
+          feedback += `❌ Soal ${i}: Salah. Jawaban yang benar adalah '${answers[`q${i}`]}'.\n`;
+        }
+      }
+
+      const resultText = `Kamu menjawab ${correct} dari 4 soal dengan benar.\n\n${feedback}`;
+      document.getElementById("result").innerText = resultText;
+      clearInterval(timerInterval);
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle("dark");
+      const btn = document.getElementById("toggle-mode");
+      btn.textContent = document.body.classList.contains("dark") ? "Mode Terang" : "Mode Gelap";
+    }
+  </script>
+</body>
+</html>

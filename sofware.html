@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduMedia - Belajar Interaktif</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .dark {
+      background: #0f172a;
+      color: #f8fafc;
+    }
+    .dark section {
+      background: #1e293b !important;
+      box-shadow: 0 2px 6px rgba(255,255,255,0.05);
+    }
+    .dark header,
+    .dark footer,
+    .dark nav {
+      background: #0f172a !important;
+    }
+    .dark nav a {
+      background: #334155 !important;
+      color: #f1f5f9 !important;
+    }
+    header {
+      background: linear-gradient(to right, #4f46e5, #3b82f6);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    nav {
+      background: #1e293b;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    nav a {
+      color: #f8fafc;
+      text-decoration: none;
+      padding: 0.75rem 1.25rem;
+      background: #3b82f6;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+    nav a:hover {
+      background: #2563eb;
+    }
+    main {
+      padding: 2rem;
+    }
+    section {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #1e40af;
+      font-size: 24px;
+    }
+    .quiz input[type="radio"] {
+      margin-right: 0.5rem;
+      transform: scale(1.3);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #1e293b;
+      color: white;
+      font-size: 16px;
+    }
+    #timer {
+      font-weight: bold;
+      color: #dc2626;
+    }
+    #toggle-mode {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #ffffff;
+      color: rgb(26, 255, 5);
+      border: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      z-index: 1000;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 18px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <button id="toggle-mode" onclick="toggleMode()">Mode Gelap</button>
+  <header>
+    <h1>EduMedia</h1>
+    <p>Platform Pembelajaran Interaktif</p>
+  </header>
+  <nav>
+    <a href="#materi">Materi</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#hasil">Hasil</a>
+  </nav>
+  <main>
+    <section id="materi">
+      <h2>Materi Pembelajaran</h2>
+      <p><strong>Judul:</strong> Software and Engineering (Rekayasa Perangkat Lunak)</p>
+      <p><strong>Apa Rekayasa Perangkat Lunak?</strong> Rekayasa Perangkat Lunak (Software Engineering) adalah disiplin ilmu yang berfokus pada pengembangan sistem perangkat lunak secara sistematis, terstruktur, dan terkontrol. Tujuan utama dari rekayasa perangkat lunak adalah menghasilkan perangkat lunak berkualitas tinggi, andal, efisien, dan mudah dipelihara.
+      </p>
+      <p><strong> Ciri-Ciri Perangkat Lunak Berkualitas:</strong></p>
+      <ul>
+        <li><strong>Reliability (Keandalan):</strong> Berfungsi sesuai harapan.</li>
+        <li><strong>Usability (Kemudahan Pakai):</strong> Mudah digunakan oleh pengguna.</li>
+        <li><strong>Efficiency (Efisiensi):</strong> Menggunakan sumber daya secara optimal.</li>
+        <li><strong>Maintainability (Pemeliharaan):</strong> Mudah diperbaiki dan ditingkatkan.</li>
+        <li><strong>Portability (Portabilitas):</strong> Dapat digunakan di berbagai platform.</li>
+      </ul>
+    </section>
+    <section id="quiz" class="quiz">
+      <h2>Quiz</h2>
+      <p id="timer">Waktu: 60 detik</p>
+      <form id="quizForm">
+        <p>1.  Apa yang dimaksud dengan rekayasa perangkat lunak??</p>
+        <label><input type="radio" name="q1" value="a"> Internet of Technology</label><br>
+        <label><input type="radio" name="q1" value="b"> Ilmu tentang produksi dan pemeliharaan perangkat lunak</label><br>
+        <label><input type="radio" name="q1" value="c"> Interconnected Online Technology</label><br><br>
+
+        <p>2. Di bawah ini yang bukan merupakan fase dari Software Development Life Cycle (SDLC) adalah?</p>
+        <label><input type="radio" name="q2" value="a"> Remote Control TV</label><br>
+        <label><input type="radio" name="q2" value="b"> Pemasaran</label><br>
+        <label><input type="radio" name="q2" value="c"> Printer biasa</label><br><br>
+
+        <p>3.  Model pengembangan perangkat lunak yang bersifat iteratif dan fleksibel disebut?</p>
+        <label><input type="radio" name="q3" value="a"> Mengontrol pupuk secara manual</label><br>
+        <label><input type="radio" name="q3" value="b"> Agile</label><br>
+        <label><input type="radio" name="q3" value="c"> Menyiram tanaman dengan ember</label><br><br>
+
+        <p>4. Siapa yang bertanggung jawab menguji perangkat lunak sebelum digunakan oleh pengguna?</p>
+        <label><input type="radio" name="q4" value="a"> Biaya produksi murah</label><br>
+        <label><input type="radio" name="q4" value="b"> Software Tester</label><br>
+        <label><input type="radio" name="q4" value="c"> Jaringan 5G</label><br><br>
+
+        <button type="button" onclick="checkAnswers()">Kirim Jawaban</button>
+      </form>
+    </section>
+    <section id="hasil">
+      <h2>Hasil Jawaban</h2>
+      <p id="result">Silakan kerjakan quiz untuk melihat hasil.</p>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 EduMedia. Dibuat dengan HTML & Semangat Belajar.
+  </footer>
+
+  <script>
+    let time = 60;
+    let timerInterval = setInterval(() => {
+      if (time <= 0) {
+        clearInterval(timerInterval);
+        checkAnswers();
+        document.getElementById("timer").innerText = "Waktu habis!";
+      } else {
+        document.getElementById("timer").innerText = `Waktu: ${time} detik`;
+        time--;
+      }
+    }, 1000);
+
+    function checkAnswers() {
+      let correct = 0;
+      const answers = {
+        q1: 'b',
+        q2: 'b',
+        q3: 'b',
+        q4: 'b'
+      };
+
+      let feedback = "";
+      for (let i = 1; i <= 4; i++) {
+        const q = document.querySelector(`input[name="q${i}"]:checked`);
+        if (q && q.value === answers[`q${i}`]) {
+          correct++;
+          feedback += `✔️ Soal ${i}: Benar.\n`;
+        } else {
+          feedback += `❌ Soal ${i}: Salah. Jawaban yang benar adalah '${answers[`q${i}`]}'.\n`;
+        }
+      }
+
+      const resultText = `Kamu menjawab ${correct} dari 4 soal dengan benar.\n\n${feedback}`;
+      document.getElementById("result").innerText = resultText;
+      clearInterval(timerInterval);
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle("dark");
+      const btn = document.getElementById("toggle-mode");
+      btn.textContent = document.body.classList.contains("dark") ? "Mode Terang" : "Mode Gelap";
+    }
+  </script>
+</body>
+</html>
